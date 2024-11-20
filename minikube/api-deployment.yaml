@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-rust
+  labels: #Etiquetas del deployment
+    app: api
+spec:
+  replicas: 5
+  selector: #Busca los pods que tengan estas etiquetas para gestionarlos
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels: #Etiquetas de los pods
+        app: api
+    spec:
+      containers:
+        - name: api-rust
+          image: crisafire/api-rust:latest
+          ports:
+            - containerPort: 8000
+          workingDir: /app
+          command: ["/usr/local/bin/api-rust"] 
