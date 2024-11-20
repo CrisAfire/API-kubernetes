@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bd-script
+data:
+  script.sql: |
+    CREATE DATABASE residencias;
